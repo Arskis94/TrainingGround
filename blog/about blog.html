@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog</title>
+    <title>About blog</title>
     <link rel="stylesheet" href="css/styling.css">
 </head>
+
 <body>
     <div class="site">
-        <header class="header">
+        <div class="contentcontainer">
+            <header class="title">
+                <nav class="navigation">
+                    <a class="nav" href="index.html">
+                        <span>Home</span>
+                    </a>
+                    &verbar;
+                    <span style="text-decoration: underline;"> About this blog</span>
+                    &verbar;
+                    <a class="nav" href="../About me/index.html">
+                        <span>About me</span>
+                    </a>
+                </nav>
 
-            <div id="navigation">
-            <nav class="navigation">
-                <a href="index.html">Home</a>
-                &verbar;
-                <span style="text-decoration: underline;"> About this blog</span>
-                &verbar;
-                <a href="../About me/index.html">About me</a>
-            </nav>
-            </div>
-            
-            <div id="logo">
                 <h2>What is this blog for</h2>
-            </div>
-        </header>
+            </header>
 
-        <main>
-            <aside id="sidebarlinks">
+            <main class="content">
+                <section class="articles">
+                    <article>
+                        <p>This blog is to represent what I learned <p>
+                    </article>
+                </section>
+            </main>
+        </div>
+
+        <aside class="sidebarcontainer">
+            <div class="links">
                 <h3>Useful links</h3>
-                <ul>
+
+                <ul class="actuallinks">
                     <li>
-                        <a class="links" href="https://google.com">Google.com</a>
+                        <a href="https://google.com">Google.com</a>
                     </li>
                     <li>
-                        <a class="links" href="https://google.fi">Google.fi</a>
+                        <a href="https://google.fi">Google.fi</a>
                     </li>
                 </ul>
-            </aside>
+            </div>
 
-            <article class="articles">
-                <p>This blog is to represent what I'm capable of doing.</p>
-            </article>
-        </main>
+            <div class="backtotop">
+                <a href="about blog.html">Back to top &uparrow;</a>
+            </div>
+        </aside>
+
         <footer class="footer">
             &copy; Copyright - All rights reserved.
             <a href="https://google.com/termsofservice">Terms of service</a>
@@ -50,4 +63,5 @@
         </footer>
     </div>
 </body>
+
 </html>

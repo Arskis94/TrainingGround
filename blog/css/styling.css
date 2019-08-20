@@ -15,15 +15,15 @@ body{
 .site{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr auto;
 }
 
-.titlecontainer{
+.contentcontainer{
     grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
     grid-template-columns: 2fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: min-content min-content;
 }
 
 .title{
@@ -38,7 +38,7 @@ body{
     text-align: left;
 }
 
-.navigation > a :hover{
+.nav :hover{
     font-weight: bold;
 }
 
@@ -50,16 +50,15 @@ body{
 
 .sidebarcontainer{
     grid-column: 3/4;
-    grid-row: 1/3;
+    grid-row: 1/2;
     display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 19em auto;
-    contain: content;
+    grid-template-columns: auto;
+    grid-template-rows:min-content 300px min-content;
 }
 
 .links{
     grid-column: 1/2;
-    grid-row: 2/3;
+    grid-row: 3/4;
     background-color: orange;
     border-radius: 18px;
     padding: 10px;
@@ -69,25 +68,31 @@ body{
     background-color: red;
     border-radius: 18px;
     padding: 15px;
-    list-style: inside; 
+    list-style: none;
 }
 
 .backtotop{
-    grid-column: 2/3;
+    background-color: royalblue;
+    grid-column: 3/4;
     grid-row: 1/2;
     position: sticky;
     top: 10px;
 }
 
+
+
 .backtotop :hover{
-    font-weight: lighter;
+    text-decoration: underline;
+}
+
+.actuallinks :hover{
+    font-weight: bold;
 }
 
 
 .footer{
     grid-column: 1/4;
-    grid-row: 3/4;
+    grid-row: 2/3;
     background-color: olive;
-    position: sticky;
-    bottom: 0px;
+    position: static;
 }

@@ -2,36 +2,66 @@
     box-sizing: border-box;
 }
 
-.wrap{
-    width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 20px;
-    display: grid;
+a{
+    text-decoration: none;
 }
 
 body{
     background-color: blue;
-    display: block;
     font-family: sans-serif;
+    margin: 0;
 }
 
-nav{
-    padding: 20px;
-    background-color: aqua;
-    border-radius: 10px 10px 0 0;
+.site{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto;
+    grid: auto;
 }
 
-main{
-    padding: 10px;
-    overflow: hidden;
+.titlecontainer{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-template-rows: 1fr auto;
 }
 
-h1{
-    font-weight: lighter;
+.title{
+    grid-row: 1/2;
+    background-color: aquamarine;
 }
 
-footer{
-    position: sticky;
-    padding: 10px;
+.sidebarcontainer{
+    background-color: darkkhaki;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+}
+
+.actuallinks{
+    background-color: lightseagreen;
+    padding: 8px;
+    list-style: inside;
+}
+
+.nav :hover{
+    font-weight: bold;
+}
+
+.contentcontainer{
+    background-color: salmon;
+}
+
+.actuallinks :hover{
+    font-weight: bold;
+}
+
+.footer{
+    background-color: fuchsia;
+    grid-column: 1/4;
+    grid-row: 3/4;
+    align-self: end;
 }

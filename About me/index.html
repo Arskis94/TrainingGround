@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +8,61 @@
     <title>Me</title>
     <link rel="stylesheet" href="css/styling.css">
 </head>
-<body>
-    <div class="wrap">
-    <div>
-        <nav>
-            <span style="text-decoration: underline">Home</span>
-            &verbar;
-            <a href="about.html">About</a>
-            &verbar;
-            <a href="contact.html"> Contact</a>
-            &verbar;
-            <a href="../blog/index.html">My Blog</a>
-        </nav>
-    </div>
 
-    <div>
-        <main>    
-            <h1>Welcome to my website</h1>
-            <img src="img/icat.jpeg" alt="a picture of a cat">
-            <h2>About me Aarne Logvinenko</h2>
-            <p>Hello my name is Aarne Logvinenko and this is my first website</p>
-            <p>Here I am going to tell you about myself and my personal life</p>
-        </main>
+<body>
+    <div class="site">
+        <div class="titlecontainer">
+            <header class="title">
+                <nav class="navigation">
+                    <span style="text-decoration: underline">Home</span>
+                    &verbar;
+                    <a class="nav" href="about.html">
+                        <span>About</span>
+                    </a>
+                    &verbar;
+                    <a class="nav" href="contact.html">
+                        <span>Contact</span>
+                    </a>
+                    &verbar;
+                    <a class="nav" href="../blog/index.html">
+                        <span>My Blog</span>
+                    </a>
+                </nav>
+
+                <h1>Welcome to my website</h1>
+
+                <img src="img/icat.jpeg" alt="a picture of a cat">
+            </header>
+
+            <div class="contentcontainer">
+                <main class="contentwrapper">
+                    <h2>About me Aarne Logvinenko</h2>
+                    <section class="content">
+                        <p>Yo wadap</p>
+                        <p>Habla espanjol?</p>
+                    </section>
+                </main>
+            </div>
+        </div>
+        
+        <aside class="sidebarcontainer">
+            <div class="linkscontainer">
+                <h4>Some links xD</h4>
+                <ul class="actuallinks">
+                    <li>
+                        <a href="https://youtube.com">Yuutub</a>
+                    </li>
+                    <li>
+                        <a href="https://wikipedia.org">Wiki</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <footer class="footer">
+            &copy; Copyright - All rights reserved.
+        </footer>
     </div>
-    
-    <div>
-            <footer>&copy; Copyright - All rights reserved.</footer>
-    </div>    
-    </div>
-</div>
 </body>
 
 </html>
