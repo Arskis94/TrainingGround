@@ -14,7 +14,7 @@ body{
 
 .site{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 25% 50% 25%;
     grid-template-rows: 1fr auto;
 }
 
@@ -22,8 +22,7 @@ body{
     grid-column: 2/3;
     grid-row: 1/2;
     display: grid;
-    grid-template-columns: 2fr;
-    grid-template-rows: min-content min-content;
+    grid-template-rows: min-content min-content auto;
 }
 
 .title{
@@ -52,8 +51,8 @@ body{
     grid-column: 3/4;
     grid-row: 1/2;
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows:min-content 300px min-content;
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-rows: min-content 300px min-content;
 }
 
 .links{
@@ -72,14 +71,12 @@ body{
 }
 
 .backtotop{
-    background-color: royalblue;
     grid-column: 3/4;
     grid-row: 1/2;
     position: sticky;
     top: 10px;
+    text-align: right;
 }
-
-
 
 .backtotop :hover{
     text-decoration: underline;
@@ -93,6 +90,7 @@ body{
 .footer{
     grid-column: 1/4;
     grid-row: 2/3;
-    background-color: olive;
+    background-color: #968955cb;
     position: static;
+    align-items: end;
 }
