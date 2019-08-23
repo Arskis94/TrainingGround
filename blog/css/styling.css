@@ -91,6 +91,5 @@ body{
     grid-column: 1/4;
     grid-row: 2/3;
     background-color: #968955cb;
-    position: static;
-    align-items: end;
+    align-self: end;
 }

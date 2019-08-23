@@ -30,6 +30,10 @@ body{
     padding: 15px;
 }
 
+p{
+    text-align: justify;
+}
+
 .title{
     text-align: center;
     grid-row: 1/2;
@@ -77,5 +81,5 @@ body{
     background-color: fuchsia;
     grid-column: 1/4;
     grid-row: 2/3;
-    align-self: end;
+    justify-self: end;
 }
