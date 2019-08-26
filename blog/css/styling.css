@@ -18,6 +18,14 @@ body{
     grid-template-rows: 1fr auto;
 }
 
+img{
+    max-width: 600px;
+    display: flexbox;
+    height: auto;
+    justify-content: center;
+}
+
+
 .contentcontainer{
     grid-column: 2/3;
     grid-row: 1/2;

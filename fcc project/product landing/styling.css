@@ -1,0 +1,25 @@
+body{
+    display: flexbox;
+}
+
+nav{
+    font-size: 15px;
+}
+
+#submit{
+    display: flex;
+    height: 200px;
+    width: 300px;
+}
+
+#one{
+    justify-self: end;
+}
+
+@media (max-width: 100px) {
+    p{
+        font-size: 10px;
+    }
+   
+}
+
