@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('yo wadup');
+
+    // Interpolated
+    console.log('yo wadup im a a %s string!', '+poop');
+
+    // Styled
+    console.log('%c yo my is a text', 'font-size: 4px; background: pink; color: white;');
+
+    // warning!
+    console.warn('Oh noes');
+
+    // Error :|
+    console.error('omagad ');
+
+    // Info
+    console.info('huh? hah? hehe? lol xd?');
+
+    // Testing
+    console.assert(1 === 3, 'WONG');
+
+    // clearing
+    const p = document.querySelector('p');
+
+    // Viewing DOM Elements
+    console.dir(p);
+    console.log(p);
+
+    // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`Dis is ${dog.name}`);
+      console.log(`he be da ${dog.age} old`);
+      console.log(`so he be ${dog.age * 7} doggo years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+
+    // counting
+    console.count('uno');
+    console.count('uno');
+    console.count('dos');
+    console.count('dos');
+    console.count('dos');
+    console.count('uno');
+    console.count('dos');
+    console.count('dos');
+    console.count('dos');
+    console.count('uno');
+    console.count('uno');
+
+    // timing
+    console.time('numbers');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('numbers');
+        console.log(data);
+      });
+
+  </script>
+</body>
+
+</html>
