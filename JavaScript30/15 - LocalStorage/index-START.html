@@ -33,7 +33,7 @@
   <div class="wrapper">
     <h2>LOCAL TAPAS</h2>
     <p></p>
-    <ul class="plates">
+    <ul id="plates" class="plates">
       <li>Loading Tapas...</li>
     </ul>
     <form class="add-items">
@@ -42,7 +42,7 @@
       <br />
       <input type="reset" class="clearAll" value="Clear All" id="clearAll">
       <input type="button" class="checkAll" value="Check All">
-      <input type="button" class="unCheckAll" value="unCheck All">
+      <input type="button" class="unCheckAll" value="Uncheck All">
     </form>
   </div>
 
@@ -84,35 +84,54 @@
           <label for="item${i}">${food.text}</label>
         </li>
       `;
-        console.log("umm?")
       }).join("");
     }
 
     function clearList(e) {
-      const listL = itemsList.length;
-      console.log("yo");
-      for (let i = 0; i < listL; i++) {
-        localStorage.removeItem[i];
+      e.preventDefault();
+      const theList = JSON.parse(localStorage.items);
+      theList.forEach(removeAll);
 
-      }
+      function removeAll(item, index) {
+        theList.splice(index);
+      };
+
+      addItemToList(items, theList);
+      localStorage.setItem("items", JSON.stringify(theList));
+      location.reload();
     }
 
     function checkList() {
-      const listL = itemsList.length;
-      console.log("check");
+      const theList = JSON.parse(localStorage.items);
+      let listL = theList.length;
+      for (let i = 0; i < listL; i++) {
+        if (theList[i].done !== true) {
+          theList[i].done = true;
+        }
+      }
+      localStorage.setItem("items", JSON.stringify(theList));
+      location.reload();
     }
 
     function unCheckList() {
-      const listL = itemsList.length;
-      console.log("uncheck");
+      const theList = JSON.parse(localStorage.items);
+      let listL = theList.length;
+      for (let i = 0; i < listL; i++) {
+        if (theList[i].done !== false) {
+          theList[i].done = false;
+        }
+      }
+      localStorage.setItem("items", JSON.stringify(theList));
+      location.reload();
     }
 
     addItems.addEventListener("submit", addItem);
-    addItemToList(items, itemsList);
+
     itemsList.addEventListener("click", toggleYes);
     clearAll.addEventListener("click", clearList);
     checkAll.addEventListener("click", checkList);
     unCheckAll.addEventListener("click", unCheckList);
+    addItemToList(items, itemsList);
 
 
   </script>
