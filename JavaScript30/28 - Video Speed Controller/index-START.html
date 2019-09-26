@@ -15,6 +15,33 @@
   </div>
 
 <script>
+  const speedDiv = document.querySelector(".speed");
+  const sliderBar = speedDiv.querySelector(".speed-bar");
+  const video = document.querySelector(".flex");
+  let isDown = false;
+
+  speedDiv.addEventListener("mousedown", () => {
+    isDown = true;
+  });
+  speedDiv.addEventListener("mouseup", () => {
+    isDown = false;
+  });
+  speedDiv.addEventListener("mouseleave", () => {
+    isDown = false;
+  });
+  speedDiv.addEventListener("mousemove", function (e) {
+    if(!isDown) return;
+    const y = e.pageY - this.offsetTop,
+    percentage = y / this.offsetHeight,
+    min = 0.2,
+    max = 16,
+    height = Math.round(percentage * 100) + "%",
+    playSpeed = percentage * (max - min) + min;
+
+    sliderBar.style.height = height;
+    sliderBar.textContent = playSpeed.toFixed(1) + "x";
+    video.playbackRate = playSpeed;
+  });
 </script>
 </body>
 </html>
