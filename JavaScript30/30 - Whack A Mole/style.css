@@ -63,6 +63,26 @@ p {
   margin-top: 10px;
 }
 
+.buttonEasy {
+  background: lightgreen;
+}
+
+.buttonNormal {
+  background: yellow;
+}
+
+.buttonHard {
+  background: brown;
+}
+
+.buttonInsane {
+  background: red;
+}
+
+.buttonGODMode {
+  background: pink;
+}
+
 .button, .lbutton {
   font-size: 22px;
   margin-left: 20px;
@@ -109,11 +129,12 @@ p {
   top: 100%;
   width: 100%;
   height: 100%;
-  transition:all 0.4s;
+  transition: all 0.2s;
 }
 
 .hole.up .mole {
   top: 0;
+  transition:all 0.4s;
 }
 
 .theleaderBoard {
@@ -136,7 +157,9 @@ li {
 .leaderboardEasy, .leaderboardNormal, .leaderboardHard, .leaderboardInsane, .leaderboardGOD {
   display: none;
   text-align: center;
-  position: absolute
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
 }
 
 .leaderboardEasy.active, .leaderboardNormal.active, .leaderboardHard.active, .leaderboardInsane.active, .leaderboardGOD.active {

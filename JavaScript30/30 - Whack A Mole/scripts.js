@@ -7,6 +7,8 @@ const lbuttons = document.querySelectorAll(".lbutton");
 const leaderboard = document.querySelector(".theleaderBoard");
 const lederberds = leaderboard.querySelectorAll(".lederberd");
 const timer = document.querySelector(".timer");
+
+
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -37,6 +39,14 @@ function pop(popMin, popMax) {
 }
 
 function startGame(timeToPlay, popMin, popMax) {
+    name = document.querySelector(".inputtext").value;
+    if (!name) {
+        document.querySelector("h2").style.color = "red";
+        alert("Choose your name!");
+        return;
+    }
+    document.querySelector("h2").style.color = "black";
+
     dbuttons.forEach(button => button.setAttribute("disabled", ""));
     timeUp = false;
     scoreBoard.textContent = 0;
@@ -82,27 +92,36 @@ function displayTimer(seconds, timeToPlay) {
     } else {
         gameOver();
     }
-    //after the game has started display the countdown time
-    //before the game ends
 }
 
 function gameOver() {
+    clickedButtonValue = `${"leaderboard"}${this.textContent}`;
     score = scoreBoard.textContent;
     clearInterval(countdown);
     timer.textContent = "Game is now over and your score is :" + score;
     dbuttons.forEach(button => button.removeAttribute("disabled"));
+    updateLeaderboard(name, score, clickedButtonValue);
 }
 
-function updateLeaderboard() {
+function updateLeaderboard(name, score, difficulty) {
     let clickedButtonValue = `${"leaderboard"}${this.textContent}`;
     let leaderi = this.value;
-    let leader = lederberds[leaderi - 1];
-    console.log(leaderi, leader);
-    leader.classList.add("active");
-    //remove the ones that arent the leaderi indexed
-    for (let i = 0; i < lederberds.length; i++) {
-
+    let leader = lederberds;
+    leader[0].classList.add("active");
+    let i = 0;
+    for (i; i < lederberds.length; i++) {
+        if (leader[i].classList.contains(clickedButtonValue)) {
+            leader[i].classList.add("active");
+        } else {
+            leader[i].classList.remove("active");
+        }
     }
+    if (leader[0].classList.contains(clickedButtonValue)) {
+        console.log("OK");
+    }
+    //console.log(lederberds.classList.contains("leaderboardEasy"));
+
+    //lederberds.leaderboardEasy.innerHTML = "<li>name, score</li>";
 }
 
 moles.forEach(mole => mole.addEventListener("click", hitMole));

@@ -14,15 +14,15 @@
   <h1>Whack-a-mole! <span class="score">0</span></h1>
   <h2>Choose your name</h2>
   <div class="inputfield">
-    <input type="text" spellcheck="false" class="inputtext" placeholder="Type your name here"></input>
+    <input type="text" spellcheck="false" value="" class="inputtext" placeholder="Type your name here" required></input>
   </div>
   <h2>Choose your difficulty!</h2>
   <div class="buttons">
-    <button class="button" onClick="startGame(10, 400, 1800), this.disable=true">Easy mode!</button>
-    <button class="button" onClick="startGame(12, 380, 1340)">Normal mode!</button>
-    <button class="button" onClick="startGame(14, 300, 1080)">Hard mode!</button>
-    <button class="button" onClick="startGame(15, 280, 840)">Insane mode!</button>
-    <button class="button" onClick="startGame(16, 220, 480)">GOD mode!</button>
+    <button class="button buttonEasy" onClick="startGame(10, 400, 1800, updateLeaderboard()), this.disable=true">Easy mode!</button>
+    <button class="button buttonNormal" onClick="startGame(12, 380, 1340, updateLeaderboard())">Normal mode!</button>
+    <button class="button buttonHard" onClick="startGame(14, 300, 1080, updateLeaderboard())">Hard mode!</button>
+    <button class="button buttonInsane" onClick="startGame(15, 280, 840, updateLeaderboard())">Insane mode!</button>
+    <button class="button buttonGODMode" onClick="startGame(16, 220, 480, updateLeaderboard())">GOD mode!</button>
   </div>
 
   <div>
@@ -53,11 +53,11 @@
   <div class="theleaderBoard">
     <h2>LeaderBoard</h2>
     <br />
-    <button value="1" class="lbutton">Easy</button>
-    <button value="2" class="lbutton">Normal</button>
-    <button value="3" class="lbutton">Hard</button>
-    <button value="4" class="lbutton">Insane</button>
-    <button value="5" class="lbutton">GOD</button>
+    <button value="1" class="lbutton buttonEasy">Easy</button>
+    <button value="2" class="lbutton buttonNormal">Normal</button>
+    <button value="3" class="lbutton buttonHard">Hard</button>
+    <button value="4" class="lbutton buttonInsane">Insane</button>
+    <button value="5" class="lbutton buttonGODMode">GOD</button>
     <div class="lederberds">
       <div class="leaderboardEasy active lederberd">
         <h3>This is the top 10 for the easy difficulty!</h3>
@@ -66,22 +66,23 @@
       </div>
       <div class="leaderboardNormal lederberd">
         <h3>This is the top 10 for the normal difficulty!</h3>
-        <ol>
+        <ol class="theList">
         </ol>
       </div>
       <div class="leaderboardHard lederberd">
         <h3>This is the top 10 for the hard difficulty!</h3>
-        <ol>
+        <ol class="theList">
         </ol>
       </div>
       <div class="leaderboardInsane lederberd">
         <h3>This is the top 10 for the insane difficulty!</h3>
-        <ol>
+        <ol class="theList">
+          <li>Name, Score</li>
         </ol>
       </div>
       <div class="leaderboardGOD lederberd">
         <h3>This is the top 10 for the GOD mode difficulty!</h3>
-        <ol>
+        <ol class="theList">
         </ol>
       </div>
     </div>
