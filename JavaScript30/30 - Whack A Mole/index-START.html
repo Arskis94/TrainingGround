@@ -18,7 +18,7 @@
   </div>
   <h2>Choose your difficulty!</h2>
   <div class="buttons">
-    <button class="button" onClick="startGame(10, 400, 1800)">Easy mode!</button>
+    <button class="button" onClick="startGame(10, 400, 1800), this.disable=true">Easy mode!</button>
     <button class="button" onClick="startGame(12, 380, 1340)">Normal mode!</button>
     <button class="button" onClick="startGame(14, 300, 1080)">Hard mode!</button>
     <button class="button" onClick="startGame(15, 280, 840)">Insane mode!</button>
@@ -26,7 +26,7 @@
   </div>
 
   <div>
-    <h2 class="timer"></h2>
+    <h2 class="timer">Game will begin after you choose your name and difficulty</h2>
   </div>
 
   <div class="game">
@@ -51,13 +51,15 @@
   </div>
   <br />
   <div class="theleaderBoard">
+    <h2>LeaderBoard</h2>
+    <br />
     <button value="1" class="lbutton">Easy</button>
     <button value="2" class="lbutton">Normal</button>
     <button value="3" class="lbutton">Hard</button>
     <button value="4" class="lbutton">Insane</button>
     <button value="5" class="lbutton">GOD</button>
     <div class="lederberds">
-      <div class="leaderboardEasy lederberd">
+      <div class="leaderboardEasy active lederberd">
         <h3>This is the top 10 for the easy difficulty!</h3>
         <ol>
         </ol>
@@ -90,6 +92,7 @@
     const scoreBoard = document.querySelector('.score');
     const moles = document.querySelectorAll('.mole');
     const scoreboard = JSON.parse(localStorage.getItem("items")) || [];
+    const dbuttons = document.querySelectorAll(".button");
     const lbuttons = document.querySelectorAll(".lbutton");
     const leaderboard = document.querySelector(".theleaderBoard");
     const lederberds = leaderboard.querySelectorAll(".lederberd");
@@ -124,24 +127,16 @@
     }
 
     function startGame(timeToPlay, popMin, popMax) {
-      const buttons = document.querySelectorAll(".button");
-      buttons = "this.disable=true;";
-
-      let antispam = 0;
-      timeUp = true;
+      dbuttons.forEach(button => button.setAttribute("disabled", ""));
+      timeUp = false;
       scoreBoard.textContent = 0;
       score = 0;
-      gameStartTimer();
-      antispam++;
-      if(antispam > 1) {
-        console.log("Stopping the game " + antispam)
-        return;
-      }
-      setTimeout(() => {timeUp = false; pop(popMin, popMax);}, 4000);
-      setTimeout(function () {
+      theTimer(6, timeToPlay);
+      setTimeout(() => pop(popMin, popMax), 6000);
+      setTimeout(() => {
         timeUp = true;
-        setTimeout(() => gameOver(), popMax * 1000);
-      }, (timeToPlay + 4) * 1000);
+        setTimeout(() => gameOver(), popMax);
+      }, (timeToPlay + 6) * 1000);
     }
 
     function hitMole(e) {
@@ -151,26 +146,39 @@
       scoreBoard.textContent = score;
     }
 
-    function gameStartTimer () {
-      const timeNow = Date.now();
-      const timeThen = timeNow + 4000 * 1000;
-      let time = setInterval(() => {
-        const timee = Math.round((timeThen - Date.now()) / 1000);
-        timer.innerHTML = time;
-        if(timee < 1) {
-          
-          timer.innerHTML = "GOGOGO!";
+    function theTimer(seconds, timeToPlay) {
+      clearInterval(countdown);
+      displayTimer(seconds);
+      let timeLeft = timeToPlay;
+
+      countdown = setInterval(() => {
+        if (timeLeft < -timeToPlay) {
           clearInterval(countdown);
           return;
         }
-      });
-      
+        console.log(timeLeft);
+        displayTimer(timeLeft, timeToPlay);
+        timeLeft--;
+      }, 1000);
+    }
+
+    function displayTimer(seconds, timeToPlay) {
+      //display the time before the game starts
+      timer.textContent = seconds > seconds - timeToPlay ? seconds - timeToPlay : "GOGOGO!";
+      if(seconds < timeToPlay) {
+        setTimeout(() => {
+          timer.textContent = timeToPlay;
+        }, 1000);
+      }
+      //after the game has started display the countdown time
+      //before the game ends
     }
 
     function gameOver() {
       score = scoreBoard.textContent;
-      console.log("Game is now over and your score is :" + score);
-      
+      clearInterval(countdown);
+      timer.textContent = "Game is now over and your score is :" + score;
+      dbuttons.forEach(button => button.removeAttribute("disabled"));
     }
 
     function updateLeaderboard() {
