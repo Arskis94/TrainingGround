@@ -18,11 +18,11 @@
   </div>
   <h2>Choose your difficulty!</h2>
   <div class="buttons">
-    <button class="button buttonEasy" onClick="startGame(10, 400, 1800, updateLeaderboard()), this.disable=true">Easy mode!</button>
-    <button class="button buttonNormal" onClick="startGame(12, 380, 1340, updateLeaderboard())">Normal mode!</button>
-    <button class="button buttonHard" onClick="startGame(14, 300, 1080, updateLeaderboard())">Hard mode!</button>
-    <button class="button buttonInsane" onClick="startGame(15, 280, 840, updateLeaderboard())">Insane mode!</button>
-    <button class="button buttonGODMode" onClick="startGame(16, 220, 480, updateLeaderboard())">GOD mode!</button>
+    <button class="button buttonEasy" onClick="startGame(10, 400, 1800, 'Easy')">Easy mode!</button>
+    <button class="button buttonNormal" onClick="startGame(2, 380, 1340, 'Normal')">Normal mode!</button>
+    <button class="button buttonHard" onClick="startGame(1, 300, 1080, 'Hard')">Hard mode!</button>
+    <button class="button buttonInsane" onClick="startGame(15, 280, 840, 'Insane')">Insane mode!</button>
+    <button class="button buttonGODMode" onClick="startGame(16, 220, 480, 'GODMode')">GOD mode!</button>
   </div>
 
   <div>
@@ -80,7 +80,7 @@
           <li>Name, Score</li>
         </ol>
       </div>
-      <div class="leaderboardGOD lederberd">
+      <div class="leaderboardGODMode lederberd">
         <h3>This is the top 10 for the GOD mode difficulty!</h3>
         <ol class="theList">
         </ol>
