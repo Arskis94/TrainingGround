@@ -18,11 +18,11 @@
   </div>
   <h2>Choose your difficulty!</h2>
   <div class="buttons">
-    <button class="button buttonEasy" onClick="startGame(10, 400, 1800, 'Easy')">Easy mode!</button>
-    <button class="button buttonNormal" onClick="startGame(2, 380, 1340, 'Normal')">Normal mode!</button>
-    <button class="button buttonHard" onClick="startGame(1, 300, 1080, 'Hard')">Hard mode!</button>
-    <button class="button buttonInsane" onClick="startGame(15, 280, 840, 'Insane')">Insane mode!</button>
-    <button class="button buttonGODMode" onClick="startGame(16, 220, 480, 'GODMode')">GOD mode!</button>
+    <button class="button buttonEasy" onClick="startGame(10, 400, 1800, 'Easy')">Easy mode</button>
+    <button class="button buttonNormal" onClick="startGame(2, 380, 1340, 'Normal')">Normal mode</button>
+    <button class="button buttonHard" onClick="startGame(1, 300, 1080, 'Hard')">Hard mode</button>
+    <button class="button buttonInsane" onClick="startGame(15, 280, 840, 'Insane')">Insane mode</button>
+    <button class="button buttonGODMode" onClick="startGame(16, 220, 480, 'GODMode')">GOD MODE!</button>
   </div>
 
   <div>
@@ -57,32 +57,31 @@
     <button value="2" class="lbutton buttonNormal">Normal</button>
     <button value="3" class="lbutton buttonHard">Hard</button>
     <button value="4" class="lbutton buttonInsane">Insane</button>
-    <button value="5" class="lbutton buttonGODMode">GOD</button>
+    <button value="5" class="lbutton buttonGODMode">GODMode</button>
     <div class="lederberds">
       <div class="leaderboardEasy active lederberd">
         <h3>This is the top 10 for the easy difficulty!</h3>
-        <ol>
+        <ol class="theList listEasy">
         </ol>
       </div>
       <div class="leaderboardNormal lederberd">
         <h3>This is the top 10 for the normal difficulty!</h3>
-        <ol class="theList">
+        <ol class="theList listNormal">
         </ol>
       </div>
       <div class="leaderboardHard lederberd">
         <h3>This is the top 10 for the hard difficulty!</h3>
-        <ol class="theList">
+        <ol class="theList listHard">
         </ol>
       </div>
       <div class="leaderboardInsane lederberd">
         <h3>This is the top 10 for the insane difficulty!</h3>
-        <ol class="theList">
-          <li>Name, Score</li>
+        <ol class="theList listInsane">
         </ol>
       </div>
       <div class="leaderboardGODMode lederberd">
         <h3>This is the top 10 for the GOD mode difficulty!</h3>
-        <ol class="theList">
+        <ol class="theList listGODMode">
         </ol>
       </div>
     </div>
