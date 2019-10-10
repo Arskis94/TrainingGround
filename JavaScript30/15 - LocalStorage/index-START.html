@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>LocalStorage</title>
+  <title>Local Storage</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -47,12 +47,14 @@
   </div>
 
   <script>
-    const addItems = document.querySelector('.add-items');
-    const itemsList = document.querySelector('.plates');
-    const items = JSON.parse(localStorage.getItem("items")) || [];
-    const clearAll = document.querySelector(".clearAll");
-    const checkAll = document.querySelector(".checkAll");
-    const unCheckAll = document.querySelector(".unCheckAll");
+    const addItems = document.querySelector('.add-items'),
+      clearAll = document.querySelector(".clearAll"),
+      checkAll = document.querySelector(".checkAll"),
+      unCheckAll = document.querySelector(".unCheckAll");
+
+    let theList,
+      itemsList = document.querySelector('.plates'),
+      items = JSON.parse(localStorage.getItem("items")) || [];
 
     function addItem(e) {
       e.preventDefault();
@@ -73,7 +75,6 @@
       const index = eTarg.dataset.index;
       items[index].done = !items[index].done;
       localStorage.setItem("items", JSON.stringify(items));
-      console.log(e.target);
     }
 
     function addItemToList(foods = [], foodList) {
@@ -88,41 +89,39 @@
     }
 
     function clearList(e) {
-      e.preventDefault();
-      const theList = JSON.parse(localStorage.items);
-      theList.forEach(removeAll);
-
-      function removeAll(item, index) {
-        theList.splice(index);
-      };
-
-      addItemToList(items, theList);
-      localStorage.setItem("items", JSON.stringify(theList));
-      location.reload();
+      itemsList.innerHTML = "";
+      items = [];
+      localStorage.removeItem("items");
     }
 
-    function checkList() {
-      const theList = JSON.parse(localStorage.items);
-      let listL = theList.length;
-      for (let i = 0; i < listL; i++) {
-        if (theList[i].done !== true) {
-          theList[i].done = true;
+
+
+    function checkList(e) {
+      theList = JSON.parse(localStorage.getItem("items"));
+      if (theList.length === null) {
+        return;
+      } else {
+        let listL = theList.length, i = 0;
+        for (i; i < listL; i++) {
+          items[i].done = true;
         }
+        localStorage.setItem("items", JSON.stringify(theList));
+        addItemToList(items, itemsList);
       }
-      localStorage.setItem("items", JSON.stringify(theList));
-      location.reload();
     }
 
-    function unCheckList() {
-      const theList = JSON.parse(localStorage.items);
-      let listL = theList.length;
-      for (let i = 0; i < listL; i++) {
-        if (theList[i].done !== false) {
-          theList[i].done = false;
+    function unCheckList(e) {
+      theList = JSON.parse(localStorage.getItem("items"));
+      if (theList.length === null) {
+        return;
+      } else {
+        let listL = theList.length, i = 0;
+        for (i; i < listL; i++) {
+          items[i].done = false;
         }
+        localStorage.setItem("items", JSON.stringify(theList));
+        addItemToList(items, itemsList);
       }
-      localStorage.setItem("items", JSON.stringify(theList));
-      location.reload();
     }
 
     addItems.addEventListener("submit", addItem);

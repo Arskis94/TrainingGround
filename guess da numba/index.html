@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styling.css">
+    <title>Numbers</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="headerwrapper">
+            <header>
+                <h1>Guess the numbah game!</h1>
+                <h2>I have random number between 1-1000</h2>
+                <h3>Take a guess</h3>
+                <hr />
+                <p>Choose your difficulty:</p>
+                <button value="easy" class="button easy">Easy: 10 attempts(default)</button>
+                <br />
+                <button value="hard" class="button hard">Hard: 5 attempts</button>
+            </header>
+        </div>
+
+        <div class="mainwrapper">
+            <main>
+                <div class="numberguess">
+                    <h3>Enter your guess</h3>
+                    <form class="guessNumber">
+                        <input class="numberinput" type="number" min="1" max="1000" spellcheck="false" required></input>
+                        <br />
+                        <button type="submit">Feeling lucky!</button>
+                        <p class="returnguessed"></p>
+                    </form>
+                </div>
+                <div class="lastguessed">
+                    <h3>Your last guesses:</h3>
+                    <ol class="guessedlist">
+                    </ol>
+                </div>
+            </main>
+        </div>
+
+
+    </div>
+
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

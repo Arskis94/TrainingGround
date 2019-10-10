@@ -32,7 +32,7 @@ h3 {
   font-size: 2.5rem;
   text-align: center;
 }
-.lederberd {
+.leaderboard {
   text-align: center;
 }
 
@@ -63,23 +63,23 @@ p {
   margin-top: 10px;
 }
 
-.buttonEasy {
+.easyButton {
   background: lightgreen;
 }
 
-.buttonNormal {
+.normalButton {
   background: yellow;
 }
 
-.buttonHard {
+.hardButton {
   background: brown;
 }
 
-.buttonInsane {
+.insaneButton {
   background: red;
 }
 
-.buttonGODMode {
+.godmodeButton {
   background: pink;
 }
 
@@ -137,7 +137,7 @@ p {
   transition:all 0.4s;
 }
 
-.theleaderBoard {
+.theLeaderboard {
   text-align: center;
 }
 
@@ -150,11 +150,11 @@ li {
   font-size: 20px;
 }
 
-.lederberds {
+.leaderboards {
   text-align: center;
 }
 
-.leaderboardEasy, .leaderboardNormal, .leaderboardHard, .leaderboardInsane, .leaderboardGODMode {
+.easyLeaderboard, .normalLeaderboard, .hardLeaderboard, .insaneLeaderboard, .godmodeLeaderboard {
   display: none;
   text-align: center;
   position: absolute;
@@ -162,6 +162,6 @@ li {
   transform: translatex(-50%);
 }
 
-.leaderboardEasy.active, .leaderboardNormal.active, .leaderboardHard.active, .leaderboardInsane.active, .leaderboardGODMode.active {
+.easyLeaderboard.active, .normalLeaderboard.active, .hardLeaderboard.active, .insaneLeaderboard.active, .godmodeLeaderboard.active {
   display: block;
 }

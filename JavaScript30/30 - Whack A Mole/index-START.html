@@ -18,11 +18,11 @@
   </div>
   <h2>Choose your difficulty!</h2>
   <div class="buttons">
-    <button class="button buttonEasy" onClick="startGame(10, 400, 1800, 'Easy')">Easy mode</button>
-    <button class="button buttonNormal" onClick="startGame(2, 380, 1340, 'Normal')">Normal mode</button>
-    <button class="button buttonHard" onClick="startGame(1, 300, 1080, 'Hard')">Hard mode</button>
-    <button class="button buttonInsane" onClick="startGame(15, 280, 840, 'Insane')">Insane mode</button>
-    <button class="button buttonGODMode" onClick="startGame(16, 220, 480, 'GODMode')">GOD MODE!</button>
+    <button class="button easyButton" onClick="startGame(10, 400, 1800, 'easy')">Easy mode</button>
+    <button class="button normalButton" onClick="startGame(12, 380, 1340, 'normal')">Normal mode</button>
+    <button class="button hardButton" onClick="startGame(13, 300, 1080, 'hard')">Hard mode</button>
+    <button class="button insaneButton" onClick="startGame(15, 280, 840, 'insane')">Insane mode</button>
+    <button class="button godmodeButton" onClick="startGame(16, 220, 480, 'godmode')">GOD MODE!</button>
   </div>
 
   <div>
@@ -50,38 +50,38 @@
     </div>
   </div>
   <br />
-  <div class="theleaderBoard">
+  <div class="theLeaderboard">
     <h2>LeaderBoard</h2>
     <br />
-    <button value="1" class="lbutton buttonEasy">Easy</button>
-    <button value="2" class="lbutton buttonNormal">Normal</button>
-    <button value="3" class="lbutton buttonHard">Hard</button>
-    <button value="4" class="lbutton buttonInsane">Insane</button>
-    <button value="5" class="lbutton buttonGODMode">GODMode</button>
-    <div class="lederberds">
-      <div class="leaderboardEasy active lederberd">
+    <button class="lbutton easyButton" value="easy">Easy</button>
+    <button value="normal" class="lbutton normalButton">Normal</button>
+    <button value="hard" class="lbutton hardButton">Hard</button>
+    <button value="insane" class="lbutton insaneButton">Insane</button>
+    <button value="godmode" class="lbutton godmodeButton">GOD MODE!</button>
+    <div class="leaderboards">
+      <div class="easyLeaderboard active leaderboard">
         <h3>This is the top 10 for the easy difficulty!</h3>
-        <ol class="theList listEasy">
+        <ol class="theList easyList">
         </ol>
       </div>
-      <div class="leaderboardNormal lederberd">
+      <div class="normalLeaderboard leaderboard">
         <h3>This is the top 10 for the normal difficulty!</h3>
-        <ol class="theList listNormal">
+        <ol class="theList normalList">
         </ol>
       </div>
-      <div class="leaderboardHard lederberd">
+      <div class="hardLeaderboard leaderboard">
         <h3>This is the top 10 for the hard difficulty!</h3>
-        <ol class="theList listHard">
+        <ol class="theList hardList">
         </ol>
       </div>
-      <div class="leaderboardInsane lederberd">
+      <div class="insaneLeaderboard leaderboard">
         <h3>This is the top 10 for the insane difficulty!</h3>
-        <ol class="theList listInsane">
+        <ol class="theList insaneList">
         </ol>
       </div>
-      <div class="leaderboardGODMode lederberd">
+      <div class="godmodeLeaderboard leaderboard">
         <h3>This is the top 10 for the GOD mode difficulty!</h3>
-        <ol class="theList listGODMode">
+        <ol class="theList godmodeList">
         </ol>
       </div>
     </div>

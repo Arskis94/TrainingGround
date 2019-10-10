@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body{
+    font-family: sans-serif;
+    margin: 0;
+    background: url(lataus.jpeg) no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 1fr 1fr auto;
+}
+
+.headerwrapper {
+    background-color: #f9f46e;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.mainwrapper {
+    display: grid;
+    grid-column: 10px 1fr;
+    margin-top: 20px;
+    background-color: pink;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+main {
+    display: grid;
+    grid-column: 10px 1fr;  
+}
+
+.numberguess {
+    background: green;
+    grid-column: 1/2;
+    text-align: center;
+}
+
+.submitguess {
+    margin-top: 16px;
+    font-size: 16px;
+    background: pink;
+    border-radius: 10px;
+}
+
+.numberinput {
+    text-align: center;
+    width: 140px;
+    font-size: 16px;
+}
+
+.guessedlist {
+    text-align: center;
+    list-style: upper-roman;
+}
+
+.lastguessed {
+    grid-column: 2/3;
+    text-align: center;
+}
+
+.button {
+    width: 70%;
+    height: 28px;
+    text-align: center; 
+    margin: 10px;
+    font-size: 14px;
+    border-radius: 20px 20px;
+}
+
+.easy {
+    background-color: #a8f74f;
+}
+
+.hard {
+    background-color: #eb5e5e;
+}
