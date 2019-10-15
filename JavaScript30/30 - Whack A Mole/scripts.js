@@ -101,17 +101,16 @@ function gameOver(difficulty) {
     clearInterval(countdown);
     timer.textContent = "Game is now over and you got a score of: " + score;
     dbuttons.forEach(button => button.removeAttribute("disabled"));
-    dbuttons.forEach(button => document.querySelector(".inputtext").disabled = false);
     updateLeaderboard(name, score, difficulty);
 }
 
 function updateLeaderboard(name, score, difficulty) {
-    const easyList = JSON.parse(localStorage.getItem("easyList")) || [],
+    /* easyList = JSON.parse(localStorage.getItem("easyList")) || [],
     normalList = JSON.parse(localStorage.getItem("normalList")) || [],
     hardList = JSON.parse(localStorage.getItem("hardList")) || [],
     insaneList = JSON.parse(localStorage.getItem("insaneList")) || [],
-    godmodeList = JSON.parse(localStorage.getItem("godmodeList")) || [],
-    currentList = eval(difficulty + "List"),
+    godmodeList = JSON.parse(localStorage.getItem("godmodeList")) || [], */
+    const currentList = eval(difficulty + "List"),
     currentHTML = eval(difficulty + "Leader");
     let i = 0;
     if (name !== "") {

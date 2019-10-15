@@ -3,28 +3,25 @@ const guessinput = document.querySelector(".guessNumber"),
     easybutton = document.querySelector(".easy"),
     hardbutton = document.querySelector(".hard");
 
-let i = 9,
-    theNumber;
-
+let i = 9, theNumber;
 
 function randomNumber() {
-    return Math.floor(Math.random() * 1000 + 1);
+    return Math.floor(Math.random() * 7777 + 1);
 }
 
 function guessTheNumber(e, attempts, dontguess) {
     if (attempts) i = attempts;
     if (e) e.preventDefault();
     const guess = parseInt(guessinput.querySelector(".numberinput").value);
+    guessinput.querySelector(".numberinput").value = "";
     if (guess === "") return;
     if (dontguess) return;
-
     if (theNumber > guess && i > 0) {
         document.querySelector(".guessedlist").innerHTML += `<li>${guess} is too low!</li>`
         i--;
     } else if (theNumber < guess && i > 0) {
         document.querySelector(".guessedlist").innerHTML += `<li>${guess} is too high!</li>`
         i--;
-        console.log(guess);
     } else if (theNumber === guess) {
         gameWin(guess);
     } else if (i === 0 && guess !== theNumber) {
@@ -53,7 +50,7 @@ function setattempts(e, aorb) {
     }
 }
 
-function gameWin(guess) {
+function gameWin() {
     document.querySelector(".lastguessed").style.gridColumn = "1/3";
     document.querySelector(".lastguessed").style.background = "green";
     document.querySelector(".numberguess").style.display = "none";
@@ -61,7 +58,7 @@ function gameWin(guess) {
 }
 
 guessinput.addEventListener("submit", guessTheNumber);
-attemptsButtons.forEach(button => button.addEventListener("click", function (e, button) {
+attemptsButtons.forEach(button => button.addEventListener("click", function (e) {
     setattempts("", e.target.value);
 }));
 setattempts("", "easy");
