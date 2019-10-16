@@ -47,9 +47,10 @@ function startGame(timeToPlay, popMin, popMax, difficulty) {
         alert("Choose your name!");
         return;
     }
+
+    timer.textContent = "Prepare to whack dem moles!!!";
     document.querySelector("h2").style.color = "black";
     dbuttons.forEach(button => button.setAttribute("disabled", ""));
-    dbuttons.forEach(button => document.querySelector(".inputtext").disabled = true);
     timeUp = false;
     scoreBoard.textContent = 0;
     score = 0;
@@ -83,7 +84,9 @@ function theTimer(seconds, timeToPlay) {
 }
 
 function displayTimer(seconds, timeToPlay) {
-    if (seconds > timeToPlay) {
+    if(seconds - 3 > timeToPlay) {
+        timer.textContent = "Prepare to whack dem moles!!!";
+    } else if (seconds > timeToPlay) {
         timer.textContent = seconds - timeToPlay
     } else if (seconds === timeToPlay) {
         timer.textContent = "GOGOGO!";
@@ -105,12 +108,12 @@ function gameOver(difficulty) {
 }
 
 function updateLeaderboard(name, score, difficulty) {
-    /* easyList = JSON.parse(localStorage.getItem("easyList")) || [],
+    const easyList = JSON.parse(localStorage.getItem("easyList")) || [],
     normalList = JSON.parse(localStorage.getItem("normalList")) || [],
     hardList = JSON.parse(localStorage.getItem("hardList")) || [],
     insaneList = JSON.parse(localStorage.getItem("insaneList")) || [],
-    godmodeList = JSON.parse(localStorage.getItem("godmodeList")) || [], */
-    const currentList = eval(difficulty + "List"),
+    godmodeList = JSON.parse(localStorage.getItem("godmodeList")) || [],
+    currentList = eval(difficulty + "List"),
     currentHTML = eval(difficulty + "Leader");
     let i = 0;
     if (name !== "") {
