@@ -23,7 +23,10 @@ function guessTheNumber(e, attempts, dontguess) {
         document.querySelector(".guessedlist").innerHTML += `<li>${guess} is too high!</li>`
         i--;
     } else if (theNumber === guess) {
-        gameWin(guess);
+        document.querySelector(".lastguessed").style.gridColumn = "1/3";
+        document.querySelector(".lastguessed").style.background = "green";
+        document.querySelector(".numberguess").style.display = "none";
+        document.querySelector(".lastguessed").innerHTML = `<h2>YOU WON!!!</h2><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li>`;
     } else if (i === 0 && guess !== theNumber) {
         guessinput.querySelector(".numberinput").value = "";
         document.querySelector(".lastguessed").innerHTML = `<h5>YOU LOSE</h5><h4>YOU LOSE</h4><h3>YOU LOSE</h3><h2>YOU LOSE</h2><h1>YOU LOSE</h1><h1>${theNumber} WAS THE NUMBAH!!!</h1>`;
@@ -48,13 +51,6 @@ function setattempts(e, aorb) {
         document.querySelector(".hard").style.background = "red";
         document.querySelector(".easy").style.background = "darkgreen";
     }
-}
-
-function gameWin() {
-    document.querySelector(".lastguessed").style.gridColumn = "1/3";
-    document.querySelector(".lastguessed").style.background = "green";
-    document.querySelector(".numberguess").style.display = "none";
-    document.querySelector(".lastguessed").innerHTML = `<h2>YOU WON!!!</h2><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li><li>${theNumber} WAS THE NUMBAH!!!!</li>`
 }
 
 guessinput.addEventListener("submit", guessTheNumber);
