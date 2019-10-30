@@ -31,11 +31,66 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Knight : Piece
-{
-    public override List<Vector2Int> MoveLocations(Vector2Int gridPoint)
-    {
-        List<Vector2Int> locations = new List<Vector2Int>();
+public class Knight : Piece {
+    public override List<Vector2Int> MoveLocations (Vector2Int gridPoint) {
+        List<Vector2Int> locations = new List<Vector2Int> ();
+
+        Vector2Int forwardForwardRight = new Vector2Int (gridPoint.x + 1, gridPoint.y + 2);
+        if (GameManager.instance.PieceAtGrid (forwardForwardRight) == false) {
+            locations.Add (forwardForwardRight);
+        } else {
+            locations.Add (forwardForwardRight);
+        }
+
+        Vector2Int forwardForwardLeft = new Vector2Int (gridPoint.x - 1, gridPoint.y + 2);
+        if (GameManager.instance.PieceAtGrid (forwardForwardLeft) == false) {
+            locations.Add (forwardForwardLeft);
+        } else {
+            locations.Add (forwardForwardLeft);
+        }
+
+        Vector2Int backBackRight = new Vector2Int (gridPoint.x + 1, gridPoint.y - 2);
+        if (GameManager.instance.PieceAtGrid (backBackRight) == false) {
+            locations.Add (backBackRight);
+        } else {
+            locations.Add (backBackRight);
+        }
+
+        Vector2Int backBackLeft = new Vector2Int (gridPoint.x - 1, gridPoint.y - 2);
+        if (GameManager.instance.PieceAtGrid (backBackLeft) == false) {
+            locations.Add (backBackLeft);
+        } else {
+            locations.Add (backBackLeft);
+        }
+
+        Vector2Int leftLeftForward = new Vector2Int (gridPoint.x - 2, gridPoint.y + 1);
+        if (GameManager.instance.PieceAtGrid (leftLeftForward) == false) {
+            locations.Add (leftLeftForward);
+        } else {
+            locations.Add (leftLeftForward);
+        }
+
+        Vector2Int leftLeftBack = new Vector2Int (gridPoint.x - 2, gridPoint.y - 1);
+        if (GameManager.instance.PieceAtGrid (leftLeftBack) == false) {
+            locations.Add (leftLeftBack);
+        } else {
+            locations.Add (leftLeftBack);
+        }
+
+        Vector2Int rightRightForward = new Vector2Int (gridPoint.x + 2, gridPoint.y + 1);
+        if (GameManager.instance.PieceAtGrid (rightRightForward) == false) {
+            locations.Add (rightRightForward);
+        } else {
+            locations.Add (rightRightForward);
+        }
+
+        Vector2Int rightRightBack = new Vector2Int (gridPoint.x + 2, gridPoint.y - 1);
+        if (GameManager.instance.PieceAtGrid (rightRightBack) == false) {
+            locations.Add (rightRightBack);
+        } else {
+            locations.Add (rightRightBack);
+        }
+
         return locations;
     }
 }

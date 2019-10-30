@@ -37,19 +37,45 @@ public class King : Piece
         var locations = new List<Vector2Int> ();
 
         int forwardDirection = GameManager.instance.currentPlayer.forward;
+
         Vector2Int forward = new Vector2Int (gridPoint.x, gridPoint.y + forwardDirection);
         if (GameManager.instance.PieceAtGrid (forward) == false) {
             locations.Add (forward);
         }
 
         Vector2Int forwardRight = new Vector2Int (gridPoint.x + 1, gridPoint.y + forwardDirection);
-        if (GameManager.instance.PieceAtGrid (forwardRight)) {
+        if (GameManager.instance.PieceAtGrid (forwardRight) == false) {
             locations.Add (forwardRight);
         }
 
         Vector2Int forwardLeft = new Vector2Int (gridPoint.x - 1, gridPoint.y + forwardDirection);
-        if (GameManager.instance.PieceAtGrid (forwardLeft)) {
+        if (GameManager.instance.PieceAtGrid (forwardLeft) == false) {
             locations.Add (forwardLeft);
+        }
+
+        Vector2Int left = new Vector2Int (gridPoint.x - 1, gridPoint.y);
+        if (GameManager.instance.PieceAtGrid (forwardLeft) == false) {
+            locations.Add (left);
+        }
+
+        Vector2Int right = new Vector2Int (gridPoint.x + 1, gridPoint.y);
+        if (GameManager.instance.PieceAtGrid (forwardLeft) == false) {
+            locations.Add (right);
+        }
+
+        Vector2Int back = new Vector2Int (gridPoint.x, gridPoint.y - forwardDirection);
+        if (GameManager.instance.PieceAtGrid (forwardLeft) == false) {
+            locations.Add (back);
+        }
+
+        Vector2Int backLeft = new Vector2Int (gridPoint.x - 1, gridPoint.y - forwardDirection);
+        if (GameManager.instance.PieceAtGrid (forwardLeft) == false) {
+            locations.Add (backLeft);
+        }
+
+        Vector2Int backRight = new Vector2Int (gridPoint.x + 1, gridPoint.y - forwardDirection);
+        if (GameManager.instance.PieceAtGrid (forwardLeft) == false) {
+            locations.Add (backRight);
         }
 
         return locations;
