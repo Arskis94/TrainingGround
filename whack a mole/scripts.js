@@ -73,13 +73,13 @@ function theTimer(seconds, timeToPlay) {
     clearInterval(countdown);
     let timeLeft = timeToPlay + seconds;
 
-    countdown = setInterval(() => {
+    ;countdown = setInterval(() => {
         if (timeLeft === -1) {
             clearInterval(countdown);
             return;
         }
         displayTimer(timeLeft, timeToPlay);
-        timeLeft--;
+        timeLeft--
     }, 1000);
 }
 

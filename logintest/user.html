@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styling.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="welcome">Welcome user!</h1>
+            <h3>Today is:</h3>
+            <p class="currentDate"></p>
+        </header>
+
+
+
+        <div>
+            <main>
+                <div class="marking">
+                    <p>Mark in</p>
+                    <button class="markInButton" type="button">MARK IN!</button>
+                </div>
+
+                <div class="admin">
+                    <button class="addMemberButton" type="button">Add new member</button>
+                    <div class="addMemberForm">
+                        <input class="newMemberEmail" type="text" placeholder="Email">
+                        <button class="submitNewMember" type="submit">Add new member</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <br />
+
+        <div>
+            <footer><button class="logoutButton" type="button">LOG OUT!</button></footer>
+        </div>
+
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
