@@ -1,19 +1,21 @@
 const holes = document.querySelectorAll('.hole'),
-scoreBoard = document.querySelector('.score'),
-moles = document.querySelectorAll('.mole'),
-dbuttons = document.querySelectorAll(".button"),
-lbuttons = document.querySelectorAll(".lbutton"),
-leaderboard = document.querySelector(".theLeaderboard"),
-leaderboards = leaderboard.querySelectorAll(".leaderboard"),
-timer = document.querySelector(".timer"),
-theList = document.querySelector(".theList"),
-easyLeader = document.querySelector(".easyList"),
-normalLeader = document.querySelector(".normalList"),
-hardLeader = document.querySelector(".hardList"),
-insaneLeader = document.querySelector(".insaneList"),
-godmodeLeader = document.querySelector(".godmodeList");
+    scoreBoard = document.querySelector('.score'),
+    moles = document.querySelectorAll('.mole'),
+    dbuttons = document.querySelectorAll(".button"),
+    lbuttons = document.querySelectorAll(".lbutton"),
+    leaderboard = document.querySelector(".theLeaderboard"),
+    leaderboards = leaderboard.querySelectorAll(".leaderboard"),
+    timer = document.querySelector(".timer"),
+    theList = document.querySelector(".theList"),
+    easyLeader = document.querySelector(".easyList"),
+    normalLeader = document.querySelector(".normalList"),
+    hardLeader = document.querySelector(".hardList"),
+    insaneLeader = document.querySelector(".insaneList"),
+    godmodeLeader = document.querySelector(".godmodeList");
 
-let lastHole, timeUp = false, score = 0, countdown;
+let lastHole, timeUp = false,
+    score = 0,
+    countdown;
 
 function randomTime(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -21,7 +23,7 @@ function randomTime(min, max) {
 
 function randomHole(holes) {
     const holeIndex = Math.floor(Math.random() * holes.length),
-    hole = holes[holeIndex];
+        hole = holes[holeIndex];
     if (hole === lastHole) {
         return randomHole(holes);
     }
@@ -31,7 +33,7 @@ function randomHole(holes) {
 
 function pop(popMin, popMax) {
     const time = randomTime(popMin, popMax),
-    hole = randomHole(holes);
+        hole = randomHole(holes);
     hole.classList.add("up");
     setTimeout(() => {
         hole.classList.remove("up");
@@ -73,7 +75,8 @@ function theTimer(seconds, timeToPlay) {
     clearInterval(countdown);
     let timeLeft = timeToPlay + seconds;
 
-    ;countdown = setInterval(() => {
+    ;
+    countdown = setInterval(() => {
         if (timeLeft === -1) {
             clearInterval(countdown);
             return;
@@ -84,7 +87,7 @@ function theTimer(seconds, timeToPlay) {
 }
 
 function displayTimer(seconds, timeToPlay) {
-    if(seconds - 3 > timeToPlay) {
+    if (seconds - 3 > timeToPlay) {
         timer.textContent = "Prepare to whack dem moles!!!";
     } else if (seconds > timeToPlay) {
         timer.textContent = seconds - timeToPlay
@@ -92,8 +95,7 @@ function displayTimer(seconds, timeToPlay) {
         timer.textContent = "GOGOGO!";
     } else if (seconds < timeToPlay) {
         timer.textContent = seconds;
-    }
-    else {
+    } else {
         return;
     }
 }
@@ -109,12 +111,12 @@ function gameOver(difficulty) {
 
 function updateLeaderboard(name, score, difficulty) {
     const easyList = JSON.parse(localStorage.getItem("easyList")) || [],
-    normalList = JSON.parse(localStorage.getItem("normalList")) || [],
-    hardList = JSON.parse(localStorage.getItem("hardList")) || [],
-    insaneList = JSON.parse(localStorage.getItem("insaneList")) || [],
-    godmodeList = JSON.parse(localStorage.getItem("godmodeList")) || [],
-    currentList = eval(difficulty + "List"),
-    currentHTML = eval(difficulty + "Leader");
+        normalList = JSON.parse(localStorage.getItem("normalList")) || [],
+        hardList = JSON.parse(localStorage.getItem("hardList")) || [],
+        insaneList = JSON.parse(localStorage.getItem("insaneList")) || [],
+        godmodeList = JSON.parse(localStorage.getItem("godmodeList")) || [],
+        currentList = eval(difficulty + "List"),
+        currentHTML = eval(difficulty + "Leader");
     let i = 0;
     if (name !== "") {
         currentList.push([name, score]);
@@ -131,7 +133,9 @@ function updateLeaderboard(name, score, difficulty) {
 }
 
 function updateStorage(difficulty, currentList) {
-    if (currentList === [["", ""]]) return;
+    if (currentList === [
+            ["", ""]
+        ]) return;
     let asd = `${difficulty}List`;
     localStorage.setItem(asd, JSON.stringify(currentList));
 }
@@ -139,7 +143,7 @@ function updateStorage(difficulty, currentList) {
 function displayLeaderboard(e, difficulty) {
     updateLeaderboard("", "", difficulty);
     const clickedButtonValue = `${difficulty}Leaderboard`,
-    leader = leaderboards;
+        leader = leaderboards;
     let i = 0;
     for (i = 0; i < leaderboards.length; i++) {
         if (leader[i].classList.contains(clickedButtonValue)) {
@@ -151,5 +155,5 @@ function displayLeaderboard(e, difficulty) {
 }
 
 moles.forEach(mole => mole.addEventListener("click", hitMole));
-lbuttons.forEach(button => button.addEventListener("click", displayLeaderboard.bind(null, event, button.value)));
+lbuttons.forEach(button => button.addEventListener("click", displayLeaderboard.bind(null, button.value)));
 displayLeaderboard("", "easy");

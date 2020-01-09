@@ -7,6 +7,7 @@ const loginEmail = document.querySelector(".email"),
 
 function login(e, email, password) {
     let i = 0, failedLogin = true;
+    console.log(users)
     for(i; i < users.length; i++) {
         if(email === users[i].email && password === users[i].password) {
             console.log(email, password);
